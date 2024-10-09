@@ -230,3 +230,32 @@ Great job! Here is your flag:
 pwn.college{YsLPtqGC7FCEjToyKfhcAfS1pPT.dFjM5QDL5cDO0czW}
 ```
 
+## Writing to multiple programmes
+
+We use >( /challenge/the ) to send one copy of the output to /challenge/the
+
+We use >( /challenge/planet ) to send another copy of the output to /challenge/planet
+
+
+```bash
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >( /challenge/the ) >( /challenge/planet )
+This secret data must directly and simultaneously make it to /challenge/the and
+/challenge/planet. Don't try to copy-paste it; it changes too fast.
+211298324207792183
+Congratulations, you have duplicated data into the input of two programs! Here
+is your flag:
+pwn.college{Q2_VqI2eS6Ul0niKyDjXJ1ZXxSQ.dBDO0UDL5cDO0czW}
+```
+
+
+## Split-Piping Stderr and Stdout
+
+We use > >( /challenge/planet ) to redirect the stdout file to /challenge/planet
+
+We use 2> >( /challenge/the ) to redirect the stderr file to /challenge/the
+```bash
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack > >( /challenge/planet ) 2> >( /challenge/the )
+Congratulations, you have learned a redirection technique that even experts
+struggle with! Here is your flag:
+pwn.college{ESlDDyFTzeiC4T55-W5VUiENrrU.dFDNwYDL5cDO0czW}
+```
