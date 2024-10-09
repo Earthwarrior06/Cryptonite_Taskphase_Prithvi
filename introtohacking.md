@@ -20,7 +20,7 @@ hacker
 ```bash
 hacker@hello~ intro-to-commands: ~$ hello
 ```
-###Output:
+### Output:
 ```bash
 Success! Here is your flag:
 pwn.college{ _flag_ }
