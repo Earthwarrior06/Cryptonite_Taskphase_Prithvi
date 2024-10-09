@@ -60,6 +60,8 @@ hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]*
 You got it! Here is your flag!
 pwn.college{sMqXY75xTQDtnrNGUC-Jf-Uzz1O.dVjM4QDL5cDO0czW}
 ```
+To check all the files present we can use ls
+
 To make sure the glob was right I used echo
 
 ## Exclusionary Globing
