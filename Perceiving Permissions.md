@@ -2,6 +2,11 @@
 
 ## 1.Changing File Ownership:
 
+You see the file /flag owned by root with read permissions only for the owner.
+
+You change the ownership of the file to yourself (hacker) using chown hacker /flag.
+
+Now that you're the owner, you can read the contents of /flag.
 
 ```bash
 hacker@permissions~changing-file-ownership:~$ ls -l /flag
@@ -16,6 +21,12 @@ pwn.college{M63_R4ySxTNbIjzHI1MWLfRAPOb.dFTM2QDL5cDO0czW}
 
 ## 2.Groups And Files:
 
+Initially, the file /flag is owned by root with limited permissions.
+
+Using chgrp hacker /flag, you change the group ownership to hacker.
+
+Now you can access the flag as you're a member of the group.
+
 ```bash
 hacker@permissions~groups-and-files:~$ ls -l /flag
 -r--r----- 1 root root 58 Oct 17 12:32 /flag
@@ -25,6 +36,12 @@ pwn.college{8-A0P0yNzl9MSGq8AC0Dw2PwpG9.dFzNyUDL5cDO0czW}
 ```
 
 ## 3.Fun With Groups Names:
+
+The user belongs to a group (grp2011).
+
+You change the group of the /flag file to grp2011.
+
+After changing the group, you can read the flag file as your group now has access.
 
 ```bash
 hacker@permissions~fun-with-groups-names:~$ id
@@ -39,6 +56,13 @@ pwn.college{0jHWRgIee2KGXjDkslLIBvLq6Vx.dJzNyUDL5cDO0czW}
 ```
 
 ## 4.Changing Permissions:
+
+The file has no read/write/execute permissions for anyone except the owner.
+
+Using chmod a+rwx /flag, you grant read, write, and execute permissions to all users (owner, group, and others).
+
+Now you can read the contents of /flag.
+
 ```bash
 r - user/group/other can read the file (or list the directory)
 w - user/group/other can modify the files (or create/delete files in the directory)
@@ -72,6 +96,11 @@ pwn.college{wNN8V6IoLkkciBUYb_LLEqe2oQa.dNzNyUDL5cDO0czW}
 
 ## 5.Executable Files:
 
+The file /challenge/run initially only has read permissions.
+
+You add write and execute permissions for all users using chmod a+wrx /challenge/run.
+
+Now the file is executable, and when you run it, you receive the flag.
 
 ```bash
 hacker@permissions~executable-files:~$ ls -l /challenge/run
@@ -87,6 +116,9 @@ pwn.college{M0wKXgWOnO80tNQ2zIPCa3sbfBK.dJTM2QDL5cDO0czW}
 
 ## 6.Permission Tweaking Practice:
 
+This section involves a series of rounds where you need to adjust file permissions as specified.
+
+Commands like chmod a+rwx, chmod u-x, and chmod go-rx are used to fine-tune the file permissions based on the required criteria for each round.
 
 ```bash
 hacker@permissions~permission-tweaking-practice:~$ /challenge/run
@@ -312,6 +344,9 @@ pwn.college{cc0_M3zS8rAuL6FRp5qajU_vSC_.dBTM2QDL5cDO0czW}
 
 ## 7.Permissions Setting Practice:
 
+Similar to the previous section, but with a focus on specific permission patterns using chmod.
+
+You proceed through each round adjusting user, group, and others' permissions using symbolic modes (e.g., u=rwx, g=-, o=x).
 
 ```bash
 hacker@permissions~permissions-setting-practice:~$
@@ -538,6 +573,7 @@ pwn.college{0ewJi-JMo2oR3wHWDyMHPSvd45Q.dNTM5QDL5cDO0czW}
 
 ## 8.The SUID Bit:
 
+There are many cases in which non-root users need elevated access to do certain system tasks. The system admin can't be there to give them the password every time a user wanted to do a task that only root/sudoers can do. The "Set User ID" (SUID) permissions bit allows the user to run a program as the owner of that program's file.
 
 ```bash
 hacker@permissions~the-suid-bit:~$ ls -l /challenge/getroot
