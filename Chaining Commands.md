@@ -4,10 +4,9 @@
 
 
 ```bash
-
-
-
-
+hacker@chaining~chaining-with-semicolons:~$ /challenge/pwn;/challenge/college
+Yes! You chained /challenge/pwn and /challenge/college! Here is your flag:
+pwn.college{MOwzyrqCBzS8RDO0Elxq6p3CtoA.dVTN4QDL5cDO0czW}
 ```
 
 
