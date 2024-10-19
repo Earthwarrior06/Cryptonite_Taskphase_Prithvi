@@ -1,8 +1,9 @@
 #
 
 ## 1.Listing Processes:
+In this task, you use the ps -ef command to list all running processes. Each process is associated with a unique process ID (PID), parent process ID (PPID), and other details. By identifying the relevant process, you can run a challenge and retrieve the flag.
 
-We can list out all the processes
+ps -ef provides detailed information about all currently running processes.
 ```bash
 hacker@processes~listing-processes:~$ ps -ef
 UID          PID    PPID  C STIME TTY          TIME CMD
@@ -18,7 +19,9 @@ pwn.college{4ZkkT9xlGjRiJvjAN8yYukZ5vsa.dhzM4QDL5cDO0czW}
 ```
 
 ## 2.Killing Processes:
+This challenge involves using the kill command to terminate a specific process identified by its PID. After killing the target process, you can run the challenge program to obtain the flag.
 
+The kill command is used to send a signal to a process, typically to terminate it.
 
 ```bash
 hacker@processes~killing-processes:~$ ps aux | grep dont_run
@@ -32,6 +35,10 @@ pwn.college{o2p1yyW7tINAdbUNVeX10xE4L0c.dJDN4QDL5cDO0czW}
 
 ## 3.Interrupting Processes:
 
+Here, you use the keyboard shortcut Ctrl-C to interrupt a running process. This stops the process execution, and once interrupted, the challenge reveals the flag.
+
+Ctrl-C sends the SIGINT signal to interrupt a process.
+
 ```bash
 hacker@processes~interrupting-processes:~$ /challenge/run
 I could give you the flag... but I won't, until this process exits. Remember,
@@ -42,6 +49,10 @@ pwn.college{wK2A_bqmpJyQ3fH3hmahjjNs9mU.dNDN4QDL5cDO0czW}
 ```
 
 ## 4.Suspending Processes:
+
+This task demonstrates how to suspend a running process using Ctrl-Z. Once the process is suspended, you can run a new instance of the challenge and retrieve the flag.
+
+Ctrl-Z suspends the current process, which can then be resumed later.
 
 ```bash
 hacker@processes~suspending-processes:~$ /challenge/run
@@ -70,6 +81,10 @@ root          89      65  0 18:04 pts/0    00:00:00 bash /challenge/run
 
 ## 5.Resuming Processes:
 
+After suspending a process with Ctrl-Z, you can resume it using the fg command. Once the process is resumed in the foreground, the challenge program continues and presents the flag.
+
+The fg command resumes a suspended process in the foreground.
+
 ```bash
 hacker@processes~resuming-processes:~$ /challenge/run
 Let's practice resuming processes! Suspend me with Ctrl-Z, then resume me with
@@ -88,7 +103,9 @@ Goodbye!
 
 ## 6.Backgrounding Processes:
 
+This challenge involves suspending a process and then resuming it in the background using the bg command. Once a process is running in the background, you can execute another instance of the challenge.
 
+The bg command resumes a suspended process in the background.
 
 ```bash
 hacker@processes~backgrounding-processes:~$ /challenge/run
@@ -131,7 +148,9 @@ pwn.college{YQMzUkzOn-AsRvlZWy7fQp8jofR.ddDN4QDL5cDO0czW}
 
 ## 7.Foregrounding Processes
 
+In this challenge, you need to first suspend a process, then resume it in the background, and finally bring it back to the foreground with fg. This sequence allows the challenge to complete and gives the flag.
 
+The fg command brings a background process back to the foreground for interaction.
 
 ```bash
 hacker@processes~foregrounding-processes:~$ /challenge/run
@@ -160,6 +179,9 @@ pwn.college{4YVDH_cxbCvmmQ8lptsfJDZe0oM.dhDN4QDL5cDO0czW}
 
 ## 8.Starting Backgrounded Processes:
 
+You can start a process directly in the background by appending & to the command. This allows the process to run without occupying the terminal, and the flag is returned immediately.
+
+Appending & to a command runs it in the background.
 
 ```bash
 hacker@processes~starting-backgrounded-processes:~$ /challenge/run &
@@ -176,7 +198,9 @@ pwn.college{4r93yvSmGtbZmoTDXAMLOE3O-hU.dlDN4QDL5cDO0czW}
 
 ## 9.Process Exit Codes:
 
+In this task, you run a program that exits with an error code. The echo $? command displays the exit code of the last command executed, which you use to submit the correct result for the flag.
 
+The exit code of a process indicates success or failure, and can be retrieved using echo $?.
 ```bash
 hacker@processes~process-exit-codes:~$ /challenge/get-code
 Exiting with an error code!
